@@ -18,9 +18,8 @@ Module.register('compliments', {
       ],
       afternoon: [
         'Hello, beauty!',
-        'Shiloh look amazing!',
-        'Looking good today!',
-        'Hi, Shiloh'
+        'Shiloh looks amazing!',
+        'Looking good today!'
       ],
       evening: ['Wow, you look hot!', 'You look nice!', 'Hi, Eli!']
     },
@@ -155,7 +154,6 @@ Module.register('compliments', {
 	 *
 	 * return compliment string - A compliment.
 	 */
-<<<<<<< HEAD
   randomCompliment: function () {
     var compliments = this.complimentArray()
     var index = this.randomIndex(compliments)
@@ -209,59 +207,3 @@ Module.register('compliments', {
     }
   }
 })
-=======
-	randomCompliment: function() {
-		var compliments = this.complimentArray();
-		var index = this.randomIndex(compliments);
-
-		return compliments[index];
-	},
-
-	// Override dom generator.
-	getDom: function() {
-		var complimentText = this.randomCompliment();
-
-		var compliment = document.createTextNode(complimentText);
-		var wrapper = document.createElement("div");
-		wrapper.className = this.config.classes ? this.config.classes : "thin xlarge bright pre-line";
-		wrapper.appendChild(compliment);
-
-		return wrapper;
-	},
-
-
-	// From data currentweather set weather type
-	setCurrentWeatherType: function(data) {
-		var weatherIconTable = {
-			"01d": "day_sunny",
-			"02d": "day_cloudy",
-			"03d": "cloudy",
-			"04d": "cloudy_windy",
-			"09d": "showers",
-			"10d": "rain",
-			"11d": "thunderstorm",
-			"13d": "snow",
-			"50d": "fog",
-			"01n": "night_clear",
-			"02n": "night_cloudy",
-			"03n": "night_cloudy",
-			"04n": "night_cloudy",
-			"09n": "night_showers",
-			"10n": "night_rain",
-			"11n": "night_thunderstorm",
-			"13n": "night_snow",
-			"50n": "night_alt_cloudy_windy"
-		};
-		this.currentWeatherType = weatherIconTable[data.weather[0].icon];
-	},
-
-
-	// Override notification handler.
-	notificationReceived: function(notification, payload, sender) {
-		if (notification == "CURRENTWEATHER_DATA") {
-			this.setCurrentWeatherType(payload.data);
-		}
-	},
-
-});
->>>>>>> 916db613a6b6c7014521b2edf0292edeac2827a7
